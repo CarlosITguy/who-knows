@@ -15,12 +15,12 @@ class DemoStoryBoardViewController: UITableViewCell {
 
         @IBOutlet weak var topLabel: UILabel!
         @IBOutlet weak var bottomlabel: UILabel!
-        
+
     @IBAction func Slider(_ sender: UISlider) {
 //        self.DemoButton.titleLabel = "\(Int(sender.value * 1000))"
         DemoButton.setTitle("power \(Int(sender.value * 1000))", for: .normal)
     }
-    
-    
-    
+
+
+
 }

@@ -25,6 +25,7 @@ class DemoTableViewController: UIViewController {
     func setupUI (){
         
         self.demoTableView.dataSource = self
+        self.demoTableView.register(UINib(nibName: "DemoXIBTableViewCell", bundle: nil), forCellReuseIdentifier: "DemoXIBTableViewCell")
     }
     
 }
@@ -54,17 +55,29 @@ extension DemoTableViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print("this part is to print in console\(indexPath)")
         
-        guard let cell   =   tableView.dequeueReusableCell(withIdentifier: "DemoTableCell", for: indexPath) as? DemoStoryBoardViewController  else {
+        
+        guard let cell   =   tableView.dequeueReusableCell(withIdentifier: "DemoXIBTableViewCell", for: indexPath) as? DemoXIBTableViewCell  else {
             return UITableViewCell()
         }
         //            cell.textLabel?.text = self.data[indexPath.row ]
         
-        cell.DemoImage.image = UIImage(named: self.img[indexPath.row % 5])
-        cell .bottomlabel.text = self.data[indexPath.row]
+        cell.demoImage.image = UIImage(named: self.img[indexPath.row % 5])
+        cell.nameLabel.text = self.data[indexPath.row]
         
         return cell
+        
+//        print("this part is to print in console\(indexPath)")
+//        AFTER THIS POINT THE IS OK
+//        guard let cell   =   tableView.dequeueReusableCell(withIdentifier: "DemoTableCell", for: indexPath) as? DemoStoryBoardViewController  else {
+//            return UITableViewCell()
+//        }
+//        //            cell.textLabel?.text = self.data[indexPath.row ]
+//
+//        cell.DemoImage.image = UIImage(named: self.img[indexPath.row % 5])
+//        cell .bottomlabel.text = self.data[indexPath.row]
+//
+//        return cell
     }
     
     
