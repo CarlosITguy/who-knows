@@ -49,8 +49,7 @@ extension DemoTableViewController : UITableViewDataSource {
     //    if section == 0{
     //            return 5
     //                }
-    //        else {
-    //            return 20
+    //        else {     //            return 20
     //BE CAReFull whit this close
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,8 +65,7 @@ extension DemoTableViewController : UITableViewDataSource {
         cell.nameLabel.text = self.data[indexPath.row]
         
         return cell
-        
-//        print("this part is to print in console\(indexPath)")
+//               print("this part is to print in console\(indexPath)")
 //        AFTER THIS POINT THE IS OK
 //        guard let cell   =   tableView.dequeueReusableCell(withIdentifier: "DemoTableCell", for: indexPath) as? DemoStoryBoardViewController  else {
 //            return UITableViewCell()
