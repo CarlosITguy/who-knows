@@ -15,19 +15,11 @@ class DemoTableViewController: UIViewController {
     
     
     
-    var data : [String] = ["Aphelios" , "AurelionSol",  "Bard", "Braum","gnar"]
-    var img : [String] =  ["Aphelios" , "AurelionSol","Bard", "Braum","Gnar"]
-    var Name : [String] = ["Aphelios" , "AurelionSol","Bard", "Braum","Gnar"]
-    var index : Int?
+    var data : [String] = ["Aphelios" , "AurelionSol","Bard", "Braum","Daeja" , "Diana" ,"Ezreal","Gnar", "Graves", "Hecarim", "Heimerdinger","Jax", "Jayce", "Kaisa", "Karma" , "LeeSin", "Leona", "Lilia", "Lulu", "Lux", "Malphite", "Nasus", "Nidalee", "Nilah", "Nomsy" ,"Nunu", "Olaf", "Pantheon","Sylas"]
+    var img : [String] =  ["Aphelios" , "AurelionSol","Bard", "Braum","Daeja" , "Diana" ,"Ezreal","Gnar", "Graves", "Hecarim", "Heimerdinger","Jax", "Jayce", "Kaisa", "Karma" , "LeeSin", "Leona", "Lilia", "Lulu", "Lux", "Malphite", "Nasus", "Nidalee", "Nilah", "Nomsy" ,"Nunu", "Olaf", "Pantheon","Sylas"]
+    var SendName : String? = ""
+    var sendIndex : Int? = 0
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            let detail = segue.destination as?  DetailViewController
-          
-        detail?.nameString = Name[index ?? 0]
-//            detail?.delegate = self
-        }
-
-         
         
     
     override func viewDidLoad() {
@@ -35,49 +27,37 @@ class DemoTableViewController: UIViewController {
         self.setupUI()
         self.title = "Galery"
         
-        // Do any additional setup after loading the view.
+
     }
-    
-    
+
     func setupUI (){
         self.demoTableView.delegate = self
         self.demoTableView.dataSource = self
         self.demoTableView.register(UINib(nibName: "DemoXIBTableViewCell", bundle: nil), forCellReuseIdentifier: "DemoXIBTableViewCell")
-        
-
 
     }
     
 }
 
-// Te extenssion will ad some info over the new clas made in this code
-
 extension DemoTableViewController : UITableViewDataSource {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 3
-        
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         self.data.count
-        
-    }
+        }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         
         guard let cell   =   tableView.dequeueReusableCell(withIdentifier: "DemoXIBTableViewCell", for: indexPath) as? DemoXIBTableViewCell  else {
             return UITableViewCell()
         }
-        //            cell.textLabel?.text = self.data[indexPath.row ]
-        
-        cell.demoImage.image = UIImage(named: self.img[indexPath.row % 5])
+
+        cell.demoImage.image = UIImage(named: self.img[indexPath.row % img.count])
         cell.nameLabel.text = self.data[indexPath.row]
         
         return cell
@@ -85,20 +65,19 @@ extension DemoTableViewController : UITableViewDataSource {
     
     
     
-  
-    
-    
-    
-    
 }
 extension DemoTableViewController : UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.SendName = data[indexPath.row]
+
         print("The selected path is \(indexPath)")
         self.performSegue(withIdentifier: "DetailSegue", sender: self)
-        
-        index = indexPath[1]
-        
-   }
-    
+
+
+    }
+    override func  prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let info = segue.destination as! DetailViewController
+        info.nameString = SendName
+    }
 }
