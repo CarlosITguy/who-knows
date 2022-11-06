@@ -14,6 +14,8 @@ class DemoXIBTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBAction func SlideBar(_ sender: Any) {
+        
+        
     }
     @IBAction func restart(_ sender: Any) {
     }

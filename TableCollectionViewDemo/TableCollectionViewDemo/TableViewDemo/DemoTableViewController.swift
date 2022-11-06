@@ -9,23 +9,43 @@ import UIKit
 
 class DemoTableViewController: UIViewController {
     
+    @IBAction func topbutton(_ sender: Any) {self.performSegue(withIdentifier: "DetailSegue", sender: self)
+    }
     @IBOutlet weak var demoTableView: UITableView!
+    
+    
     
     var data : [String] = ["Aphelios" , "AurelionSol",  "Bard", "Braum","gnar"]
     var img : [String] =  ["Aphelios" , "AurelionSol","Bard", "Braum","Gnar"]
+    var Name : [String] = ["Aphelios" , "AurelionSol","Bard", "Braum","Gnar"]
+    var index : Int?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let detail = segue.destination as?  DetailViewController
+          
+        detail?.nameString = Name[index ?? 0]
+//            detail?.delegate = self
+        }
+
+         
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.title = "Galery"
         
         // Do any additional setup after loading the view.
     }
     
     
     func setupUI (){
-        
+        self.demoTableView.delegate = self
         self.demoTableView.dataSource = self
         self.demoTableView.register(UINib(nibName: "DemoXIBTableViewCell", bundle: nil), forCellReuseIdentifier: "DemoXIBTableViewCell")
+        
+
+
     }
     
 }
@@ -33,6 +53,7 @@ class DemoTableViewController: UIViewController {
 // Te extenssion will ad some info over the new clas made in this code
 
 extension DemoTableViewController : UITableViewDataSource {
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -46,11 +67,6 @@ extension DemoTableViewController : UITableViewDataSource {
         self.data.count
         
     }
-    //    if section == 0{
-    //            return 5
-    //                }
-    //        else {     //            return 20
-    //BE CAReFull whit this close
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -65,27 +81,24 @@ extension DemoTableViewController : UITableViewDataSource {
         cell.nameLabel.text = self.data[indexPath.row]
         
         return cell
-//               print("this part is to print in console\(indexPath)")
-//        AFTER THIS POINT THE IS OK
-//        guard let cell   =   tableView.dequeueReusableCell(withIdentifier: "DemoTableCell", for: indexPath) as? DemoStoryBoardViewController  else {
-//            return UITableViewCell()
-//        }
-//        //            cell.textLabel?.text = self.data[indexPath.row ]
-//
-//        cell.DemoImage.image = UIImage(named: self.img[indexPath.row % 5])
-//        cell .bottomlabel.text = self.data[indexPath.row]
-//
-//        return cell
     }
     
     
     
-    //    func demoFunc(with str : String){
-    //
-    //    }
+  
     
     
     
     
+}
+extension DemoTableViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("The selected path is \(indexPath)")
+        self.performSegue(withIdentifier: "DetailSegue", sender: self)
+        
+        index = indexPath[1]
+        
+   }
     
 }
