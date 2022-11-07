@@ -15,8 +15,8 @@ class DemoTableViewController: UIViewController {
     
     
     
-    var data : [String] = ["Aphelios" , "AurelionSol","Bard", "Braum","Daeja" , "Diana" ,"Ezreal","Gnar", "Graves", "Hecarim", "Heimerdinger","Jax", "Jayce", "Kaisa", "Karma" , "LeeSin", "Leona", "Lilia", "Lulu", "Lux", "Malphite", "Nasus", "Nidalee", "Nilah", "Nomsy" ,"Nunu", "Olaf", "Pantheon","Sylas"]
-    var img : [String] =  ["Aphelios" , "AurelionSol","Bard", "Braum","Daeja" , "Diana" ,"Ezreal","Gnar", "Graves", "Hecarim", "Heimerdinger","Jax", "Jayce", "Kaisa", "Karma" , "LeeSin", "Leona", "Lilia", "Lulu", "Lux", "Malphite", "Nasus", "Nidalee", "Nilah", "Nomsy" ,"Nunu", "Olaf", "Pantheon","Sylas"]
+    var data : [String] = ["Aphelios" , "AurelionSol","Bard", "Braum","Daeja" , "Diana" ,"Ezreal","Gnar", "Graves", "Hecarim", "Heimerdinger","Jax", "Jayce", "Kaisa", "Karma" , "LeeSin", "Leona", "Lillia", "Lulu", "Lux", "Malphite", "Nasus", "Nidalee", "Nilah", "Nomsy" ,"Nunu", "Olaf", "Pantheon","Sylas"]
+    var img : [String] =  ["Aphelios" , "AurelionSol","Bard", "Braum","Daeja" , "Diana" ,"Ezreal","Gnar", "Graves", "Hecarim", "Heimerdinger","Jax", "Jayce", "Kaisa", "Karma" , "LeeSin", "Leona", "Lillia", "Lulu", "Lux", "Malphite", "Nasus", "Nidalee", "Nilah", "Nomsy" ,"Nunu", "Olaf", "Pantheon","Sylas"]
     var SendName : String? = ""
     var sendIndex : Int? = 0
     

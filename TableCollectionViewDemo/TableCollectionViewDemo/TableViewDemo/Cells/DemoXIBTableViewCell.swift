@@ -18,10 +18,9 @@ class DemoXIBTableViewCell: UITableViewCell {
     
     @IBAction func SlideBar(_ sender: UISlider) {
         
-//        restart.setTitle("power \(Int(sender.value * 1000))", for: .normal)
+//        restart.setTitle.text("power \(Int(sender.value * 1000))", for: )
     }
     @IBAction func restart(_ sender: Any) {
-        
         
         
     }
