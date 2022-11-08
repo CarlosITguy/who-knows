@@ -72,7 +72,13 @@ extension DemoTableViewController : UITableViewDelegate {
         self.SendName = data[indexPath.row]
 
         print("The selected path is \(indexPath)")
-        self.performSegue(withIdentifier: "DetailSegue", sender: self)
+//        self.performSegue(withIdentifier: "DetailSegue", sender: self)
+//        let vc = DetailViewController()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailTableViewcotroller") as? DetailViewController else { return }
+        vc.nameString = SendName
+        self.navigationController?.pushViewController(vc, animated: true)
 
 
     }
