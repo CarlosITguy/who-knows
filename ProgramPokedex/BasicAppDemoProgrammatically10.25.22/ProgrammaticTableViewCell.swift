@@ -97,7 +97,7 @@ class ProgrammaticTableViewCell: UITableViewCell {
     
 //        self.progMidLabel.leadingAnchor.constraint(equalTo: self.progImageView.trailingAnchor, constant: 8).isActive = true
 //        self.progMidLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -8).isActive = true
-//        self.progMidLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        self.progMidLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         
     }
     
